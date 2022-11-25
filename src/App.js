@@ -7,14 +7,15 @@ import {Route, Routes} from "react-router-dom";
 
 
 const App = (props) => {
+
     return (
         <div className="app-wrapper">
             <Header/>
             <Navbar/>
             <div className="app-wrapper-content">
                 <Routes>
-                    <Route path='/profile' element={<Profile />}/>
-                    <Route path='/dialogs' element={<Dialogs />}/>
+                    <Route path='/profile' element={<Profile posts={props.posts}/> }/>
+                    <Route path='/dialogs' element={<Dialogs messagesData={props.messages} dialogsData={props.dialogs}/>}/>
                 </Routes>
             </div>
         </div>

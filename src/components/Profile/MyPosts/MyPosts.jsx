@@ -2,7 +2,14 @@ import React from 'react';
 import s from './MyPosts.module.css';
 import Post from "./Post/Post";
 
-const MyPosts = () => {
+const MyPosts = (props) => {
+
+    const PostItem = [
+        props.posts.map(
+            post =>   <Post message={post.message} likeCount={post.likeCount}/>
+        )
+    ];
+
     return (
         <div>
             <h3>My posts</h3>
@@ -17,8 +24,7 @@ const MyPosts = () => {
                 </div>
             </div>
             <div className={s.posts}>
-                <Post message="Hi, how are you?" likeCount="11"/>
-                <Post message="It's ok" likeCount="13"/>
+                { PostItem }
             </div>
         </div>
     )
